@@ -1,5 +1,6 @@
 <form (submit)="addUser()">
   <div>
+    <button routerLink="/users">Ver usuarios</button>
     <h2>Agregar Usuario</h2>
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" [(ngModel)]="newUser.nombre" required>

@@ -18,6 +18,16 @@
     border-radius: 10px;
   }
 
+  button {
+    background-color: #36d7b7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
   th {
     background-color: #36d7b7;
     color: white;
