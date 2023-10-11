@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8000/usuarios').subscribe((data: any) => {
+    this.http.get('http://nodejs-users-api-v86xc.kinsta.app/usuarios').subscribe((data: any) => {
       this.users = data;
     });
   }
