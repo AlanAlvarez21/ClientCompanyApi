@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-user',
@@ -7,7 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent {
-  newUser: any = {}; // Object to store user data
+  newUser: any = {};
+  errorAddingUser: string | null = null; // Variable para almacenar el mensaje de error
+
 
   constructor(private http: HttpClient) { }
 
@@ -16,14 +18,22 @@ export class AddUserComponent {
       (data: any) => {
         console.log('User added successfully', data);
 
-        // Show an alert after a successful user addition
         window.alert('Usuario Creado');
 
-        // Clear the form or perform any other necessary actions
         this.newUser = {}; 
       },
-      (error) => {
-        console.error('Error añadiendo usuario', error);
+      (error: HttpErrorResponse) => {
+        console.error('Error adding user', error);
+
+        if (error.status === 400) {
+          // El servidor respondió con un código 400 (Bad Request)
+          this.errorAddingUser = error.error.error;
+          window.alert('Error añadiendo usuario: ' + this.errorAddingUser);
+        } else {
+          // Otro tipo de error
+          this.errorAddingUser = 'Ocurrió un error al agregar el usuario';
+          window.alert('Error añadiendo usuario: ' + this.errorAddingUser);
+        }
       }
     );
   }
