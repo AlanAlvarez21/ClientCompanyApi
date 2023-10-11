@@ -12,7 +12,7 @@ export class AddUserComponent {
   constructor(private http: HttpClient) { }
 
   addUser() {
-    this.http.post('http://nodejs-users-api-v86xc.kinsta.app/usuarios', this.newUser).subscribe((data: any) => {
+    this.http.post('https://nodejs-users-api-v86xc.kinsta.app/usuarios', this.newUser).subscribe((data: any) => {
       console.log('User added successfully', data);
       // Clear the form or perform any other necessary actions
     });

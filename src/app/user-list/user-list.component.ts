@@ -1,3 +1,4 @@
+// Import necessary modules and services
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +13,11 @@ export class UserListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://nodejs-users-api-v86xc.kinsta.app/usuarios').subscribe((data: any) => {
+    // Define the API URL you want to fetch data from
+    const apiUrl = 'https://nodejs-users-api-v86xc.kinsta.app/usuarios';
+
+    // Make an HTTP GET request to the API
+    this.http.get(apiUrl).subscribe((data: any) => {
       this.users = data;
     });
   }
