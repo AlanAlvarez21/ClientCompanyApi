@@ -1,12 +1,13 @@
 
 button {
-  background-color: #36d7b7;
+  background-color: #66a89a;
   color: white;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 16px;
   cursor: pointer;
+
 }
 
 tr:hover {

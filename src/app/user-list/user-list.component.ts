@@ -1,4 +1,3 @@
-// Import necessary modules and services
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -19,6 +18,17 @@ export class UserListComponent implements OnInit {
     // Make an HTTP GET request to the API
     this.http.get(apiUrl).subscribe((data: any) => {
       this.users = data;
+    });
+  }
+
+  deleteUser(userId: string): void {
+    // Define the API URL for deleting a user by ID
+    const apiUrl = `https://nodejs-users-api-v86xc.kinsta.app/usuarios/${userId}`;
+
+    // Make an HTTP DELETE request to delete the user
+    this.http.delete(apiUrl).subscribe(() => {
+      // Remove the deleted user from the users array
+      this.users = this.users.filter((user) => user.id !== userId);
     });
   }
 }
