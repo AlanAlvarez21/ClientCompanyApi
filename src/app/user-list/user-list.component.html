@@ -1,19 +1,50 @@
-<h2>Lista de Usuarios</h2>
-<button routerLink="/add-user">Agregar Usuario</button>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Correo Electrónico</th>
-    <th>Edad</th>
-    <th>Sexo</th>
-  </tr>
-  <tr *ngFor="let user of users">
-    <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.age }}</td>
-    <td>{{ user.gender }}</td>
-  </tr>
-</table>
+<section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
+  <div class="flex flex-col justify-center h-full">
+      <!-- Table -->
+      <div class="w-full mx-auto my-auto bg-white shadow-lg rounded-sm border border-gray-200">
+          <header class="px-5 py-4 border-b border-gray-100">
+              <h2 class="font-semibold text-xl text-center text-gray-800 mb-5">Lista de Usuarios</h2>
+              <button routerLink="/add-user">Agregar Usuario</button>
+          </header>
+          
+          <div class="p-3">
+              <div class="overflow-x-auto">
+                  <table class="table-auto w-full">
+                      <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                          <tr>
+                              <th class="p-2 whitespace-nowrap">
+                                  <div class="font-semibold text-center">ID</div>
+                              </th>
+                              <th class="p-2 whitespace-nowrap">
+                                  <div class="font-semibold text-center">Nombre</div>
+                              </th>
+                              <th class="p-2 whitespace-nowrap">
+                                  <div class="font-semibold text-center">Edad</div>
+                              </th>
+                              <th class="p-2 whitespace-nowrap">
+                                  <div class="font-semibold text-center">Sexo</div>
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody class="text-sm divide-y divide-gray-100">
+                          <tr *ngFor="let user of users">
+                              <td class="p-2 whitespace-nowrap">
+                                      <div class="font-medium text-center  text-gray-800">{{ user.id }}</div>
+                              </td>
+                              <td class="p-2 whitespace-nowrap">
+                                  <div class="text-center">{{ user.name }}</div>
+                              </td>
+                              <td class="p-2 whitespace-nowrap">
+                                  <div class="text-center font-medium text-green-500">{{ user.age }}</div>
+                              </td>
+                              <td class="p-2 whitespace-nowrap">
+                                  <div class="text-lg text-center">{{ user.gender }}</div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
