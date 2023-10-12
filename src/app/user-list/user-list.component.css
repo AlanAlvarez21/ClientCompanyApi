@@ -1,17 +1,8 @@
 
-button {
-  background-color: #66a89a;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 16px;
-  cursor: pointer;
 
-}
 
 tr:hover {
-  background-color: #5ea798;
+  background-color: #bdded7;
   color: white;
   transition: background-color 0.3s ease;
 }
