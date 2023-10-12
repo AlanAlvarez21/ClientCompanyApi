@@ -11,20 +11,9 @@ export class AddUserComponent {
   newUser: any = {};
   errorAddingUser: string | null = null; // Variable para almacenar el mensaje de error
 
-  userForm: FormGroup;
-
-  constructor(private http: HttpClient) { 
-    this.userForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      correo: new FormControl('', [Validators.required, Validators.email]),
-      edad: new FormControl('', [Validators.required, Validators.min(0)]),
-      sexo: new FormControl('', [Validators.required]),
-    });
-  }
+  constructor(private http: HttpClient) { }
 
   addUser() {
-    if (this.userForm.valid) {
-
     this.http.post('https://nodejs-users-api-v86xc.kinsta.app/usuarios', this.newUser).subscribe(
       (data: any) => {
         console.log('User added successfully', data);
@@ -50,5 +39,4 @@ export class AddUserComponent {
       
     );
   }
-}
 }

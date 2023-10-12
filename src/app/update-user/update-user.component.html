@@ -16,10 +16,8 @@
             <input type="number" id="edad" name="edad" [(ngModel)]="user.age" required>
   
             <label for="sexo">Sexo:</label>
-            <select id="sexo" name="sexo" [(ngModel)]="user.gender" required>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
-            </select>
+            <input type="text" id="sexo" name="sexo" [(ngModel)]="user.gender" required>
+
           </div>
           <button type="submit" class="mt-4">Actualizar Usuario</button>
         </form>

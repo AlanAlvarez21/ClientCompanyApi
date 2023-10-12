@@ -10,7 +10,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class UpdateUserComponent implements OnInit {
   user: any = {}; // Define la estructura de tu objeto de usuario
-  private apiEndpoint = 'https://nodejs-users-api-v86xc.kinsta.app/usuarios';
+  private apiEndpoint = 'https://nodejs-users-api-v86xc.kinsta.app';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -18,7 +18,7 @@ export class UpdateUserComponent implements OnInit {
     const userId = this.route.snapshot.params['id'];
     console.log(userId)
 
-    this.http.get(`${this.apiEndpoint}/${userId}`).subscribe(
+    this.http.get(`${this.apiEndpoint}/usuarios/${userId}`).subscribe(
       (data: any) => {
         this.user = data;
         console.log(data)
@@ -30,8 +30,16 @@ export class UpdateUserComponent implements OnInit {
   }
 
   updateUser() {
-    this.http.put(`${this.apiEndpoint}/${this.user.id}`, this.user).subscribe(
+    // Verificar que los campos no estén vacíos
+    if (!this.user.name || !this.user.email || !this.user.age || !this.user.gender) {
+      alert('Todos los campos son obligatorios');
+      return;
+    }
+  
+    // Resto de tu lógica para enviar la solicitud PUT
+    this.http.put(`${this.apiEndpoint}/usuarios/${this.user.id}`, this.user).subscribe(
       () => {
+        console.log('Usuario actualizado con éxito');
         this.router.navigate(['/users']);
       },
       (error: HttpErrorResponse) => {
@@ -39,4 +47,5 @@ export class UpdateUserComponent implements OnInit {
       }
     );
   }
+  
 }
