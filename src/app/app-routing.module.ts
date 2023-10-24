@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
-import { AddUserComponent } from './add-user/add-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { CompanyListComponent } from './company-list/company-list.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'users', component: UserListComponent },
-  { path: 'add-user', component: AddUserComponent },
-  { path: 'edit-user/:id', component: UpdateUserComponent },
+  { path: '', redirectTo: '/companies', pathMatch: 'full' },
+  { path: 'companies', component: CompanyListComponent },
+  { path: 'departments/:companyId', component: DepartmentsComponent },
+  { path: 'employees/:departmentId/:companyId', component: EmployeesComponent },
 ];
 
 @NgModule({

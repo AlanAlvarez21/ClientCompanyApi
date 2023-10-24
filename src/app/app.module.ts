@@ -6,14 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { FormsModule } from '@angular/forms';
-import { UpdateUserComponent } from './update-user/update-user.component'; 
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { CompanyListComponent } from './company-list/company-list.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { EmployeesComponent } from './employees/employees.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     AddUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    CompanyListComponent,
+    DepartmentsComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
