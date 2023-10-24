@@ -1,0 +1,13 @@
+<div class="modal">
+  <div class="modal-content">
+    <h3>Agregar Usuario</h3>
+    <!-- Formulario para agregar un usuario -->
+    <form (submit)="addUser()">
+      <!-- Campos del formulario -->
+      <label for="username">Nombre de Usuario:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="newUser.username" required>
+      <!-- Otros campos del usuario -->
+      <button type="submit">Agregar Usuario</button>
+    </form>
+  </div>
+</div>
