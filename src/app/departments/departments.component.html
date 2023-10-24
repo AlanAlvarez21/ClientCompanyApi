@@ -1,0 +1,55 @@
+<section class="h-screen px-4 antialiased text-gray-600 bg-gray-100">
+    <div class="flex flex-col justify-center w-full h-full">
+        <!-- Table -->
+        <div class="w-full h-full mx-auto my-4 bg-white border border-gray-200 rounded-sm shadow-lg">
+            <header class="px-5 py-4 mt-10 border-b border-gray-100">
+                <h2 class="mb-5 text-xl font-semibold text-center text-gray-800">Lista de Departamentos</h2>
+                <button routerLink="/companies" class="px-4 py-2 font-bold text-white bg-green-400 rounded hover-bg-green-500">Ver Compañías</button>
+            </header>
+            
+            <div class="p-3">
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+
+                        <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Acciones</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">ID</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Nombre</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Líder</div>
+                                </th>
+                                <!-- Add more table headers for department-specific information if needed -->
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-100">
+                            <tr *ngFor="let department of departments">
+                                <td class="p-2 whitespace-nowrap">
+                                    <button (click)="viewEmployees(department._id)" class="px-4 py-2 font-bold text-center text-white bg-blue-400 rounded hover:bg-blue-500">Ver Empleados</button>
+                                    <button (click)="viewEmployees(department._id)" class="px-4 py-2 ml-2 font-bold text-center text-white bg-red-400 rounded hover:bg-blue-500">Eliminar Departamento</button>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-center">{{ department._id }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-center">{{ department.name }}</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-center">{{ department.leader ? department.leader.name : '-----' }}</div>
+                                </td>
+                                <!-- Add more table cells for department-specific information if needed -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
