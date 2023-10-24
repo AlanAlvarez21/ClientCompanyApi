@@ -1,0 +1,87 @@
+<!-- update-user.component.html -->
+<section class="h-screen px-4 antialiased text-gray-600 bg-gray-100">
+    <div class="flex flex-col justify-center w-full h-full">
+      <div class="w-full h-full mx-auto my-4 bg-white border border-gray-200 rounded-sm shadow-lg">
+        <form (submit)="updateDepartment()">
+            <div class="flex flex-col justify-center w-full h-full">
+
+            <button class="px-4 py-2 ml-4 font-bold text-white bg-green-600 rounded hover:bg-green-300" (click)="backToDepartment()">Volver a la Lista de Departamentos</button>
+            
+            <h2 class="md:mt-10">Actualizar Departamento</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="user.name" required>
+          
+          <label for="correo">Líder</label>
+          <button class="px-4 py-2 font-bold text-center text-white bg-blue-400 rounded hover:bg-blue-500" (click)="openAddUserModal('Líder')">Agregar Líder De Departamento</button>        
+
+          <label for="edad">Empleados:</label>
+          <button class="px-4 py-2 font-bold text-center text-white bg-blue-400 rounded hover:bg-blue-500" (click)="openAddUserModal('Empleado')">Agregar Empleado</button>
+          <button type="submit" class="px-4 py-2 mt-10 font-bold text-center text-white bg-green-400 rounded hover:bg-green-600">Actualizar Departamento</button>
+        </div>
+        </form>
+
+        <table class="w-full table-auto">
+            <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50">
+                <tr>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-center">ID</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-center">Nombre</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-center">Cargo</div>
+                    </th>
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-center">Acciones</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="text-sm divide-y divide-gray-100">
+                <tr  *ngIf="leader" >
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">{{ leader?._id }}</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">{{ leader?.name }}</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">Líder</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">
+                            <button (click)="deleteEmployee(leader._id)" class="px-4 py-2 font-bold text-white bg-red-400 rounded hover:bg-red-600">
+                                Eliminar Líder
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr *ngFor="let employee of employees">
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">{{ employee?._id }}</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">{{ employee?.name }}</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">Empleado</div>
+                    </td>
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-center">
+                            <button (click)="deleteEmployee(employee._id)" class="px-4 py-2 font-bold text-white bg-red-400 rounded hover:bg-red-600">
+                                Eliminar Empleado
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+      </div>
+    </div>
+
+    
+  </section>
+  
