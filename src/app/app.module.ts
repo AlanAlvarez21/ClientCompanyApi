@@ -9,7 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { DepartmentsComponent } from './departments/departments.component';
-import { EmployeesComponent } from './employees/employees.component'; 
+import { EmployeesComponent } from './employees/employees.component';
+import { AddDepartmentComponent } from './add-department/add-department.component'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddUserModalComponent } from './add-user-modal/add-user-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,13 +25,19 @@ import { EmployeesComponent } from './employees/employees.component';
     UpdateUserComponent,
     CompanyListComponent,
     DepartmentsComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    AddDepartmentComponent,
+    AddUserModalComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule, 
+    MatButtonModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
