@@ -4,7 +4,8 @@
         <div class="w-full h-full mx-auto my-4 bg-white border border-gray-200 rounded-sm shadow-lg">
             <header class="px-5 py-4 mt-10 border-b border-gray-100">
                 <h2 class="mb-5 text-xl font-semibold text-center text-gray-800">Lista de Departamentos</h2>
-                <button routerLink="/companies" class="px-4 py-2 font-bold text-white bg-green-400 rounded hover-bg-green-500">Ver Compañías</button>
+                <button routerLink="/companies" class="px-4 py-2 font-bold text-white bg-green-400 rounded hover-bg-green-500 hover:bg-green-300">Ver Compañías</button>
+                <button (click)="addDepartment(companyId)" class="px-4 py-2 ml-4 font-bold text-white bg-green-600 rounded hover:bg-green-300">Añadir Departamento</button>
             </header>
             
             <div class="p-3">
@@ -25,14 +26,13 @@
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-center">Líder</div>
                                 </th>
-                                <!-- Add more table headers for department-specific information if needed -->
                             </tr>
                         </thead>
                         <tbody class="text-sm divide-y divide-gray-100">
                             <tr *ngFor="let department of departments">
                                 <td class="p-2 whitespace-nowrap">
                                     <button (click)="viewEmployees(department._id)" class="px-4 py-2 font-bold text-center text-white bg-blue-400 rounded hover:bg-blue-500">Ver Empleados</button>
-                                    <button (click)="viewEmployees(department._id)" class="px-4 py-2 ml-2 font-bold text-center text-white bg-red-400 rounded hover:bg-blue-500">Eliminar Departamento</button>
+                                    <button (click)="deleteDepartment(department._id)" class="px-4 py-2 ml-2 font-bold text-center text-white bg-red-400 rounded hover:bg-red-600">Eliminar</button>
                                 </td>
                                 <td class="p-2 whitespace-nowrap">
                                     <div class="text-center">{{ department._id }}</div>
@@ -43,7 +43,6 @@
                                 <td class="p-2 whitespace-nowrap">
                                     <div class="text-center">{{ department.leader ? department.leader.name : '-----' }}</div>
                                 </td>
-                                <!-- Add more table cells for department-specific information if needed -->
                             </tr>
                         </tbody>
                     </table>

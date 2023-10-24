@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class DepartmentsComponent implements OnInit {
   departments: any[] = [];
-  companyId: string | null = null;
+  companyId: any;
   companyData: any = {};
 
   constructor(private http: HttpClient, private route: ActivatedRoute,private router: Router ) { }
@@ -32,8 +32,22 @@ export class DepartmentsComponent implements OnInit {
     }
   }
 
+  addDepartment(companyId: string): void {
+      this.router.navigate(['/add-department', companyId]);
+  }
+
+  deleteDepartment(departmentId: string): void {
+    if (confirm('¿Estás seguro de que deseas eliminar este departamento?')) {
+      const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/departments/${departmentId}`;
+  
+      this.http.delete(apiUrl).subscribe(() => {
+        // Remover el departamento eliminado de la lista
+        this.departments = this.departments.filter((department) => department._id !== departmentId);
+      });
+    }
+  }  
+
   viewEmployees(departmentId: string): void {
-      
       // Navegar a la vista de departamentos con el companyId como parámetro
       this.router.navigate(['/employees', departmentId, this.companyId]);
   
