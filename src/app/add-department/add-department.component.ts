@@ -52,6 +52,7 @@ export class AddDepartmentComponent {
         console.log('Department added successfully', data);
 
         window.alert('Departamento Creado');
+        this.backToDepartment()
 
         this.newDepartment = {}; 
       },
