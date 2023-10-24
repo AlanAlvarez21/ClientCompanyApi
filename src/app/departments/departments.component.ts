@@ -47,6 +47,10 @@ export class DepartmentsComponent implements OnInit {
     }
   }  
 
+  addEmployees(departmentId: string){
+    this.router.navigate(['/edit-department', this.companyId, departmentId]);
+  }
+
   viewEmployees(departmentId: string): void {
       // Navegar a la vista de departamentos con el companyId como parámetro
       this.router.navigate(['/employees', departmentId, this.companyId]);

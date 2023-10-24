@@ -6,6 +6,7 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'companies', component: CompanyListComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'add-department/:companyId', component: AddDepartmentComponent },
+  { path: 'edit-department/:companyId/:departmentId', component: EditDepartmentComponent },
   { path: 'departments/:companyId', component: DepartmentsComponent },
   { path: 'employees/:departmentId/:companyId', component: EmployeesComponent },
 ];

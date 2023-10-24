@@ -16,6 +16,7 @@ import { AddUserModalComponent } from './add-user-modal/add-user-modal.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     EmployeesComponent,
     AddDepartmentComponent,
     AddUserModalComponent,
+    EditDepartmentComponent,
   ],
   imports: [
     BrowserModule,
