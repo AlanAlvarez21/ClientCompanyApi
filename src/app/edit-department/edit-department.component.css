@@ -26,3 +26,7 @@ h2 {
     font-size: 14px;
   }
 
+  .table-container {
+    max-height: 400px; /* Ajusta la altura máxima deseada */
+    overflow-y: auto; /* Activa la barra de desplazamiento vertical si es necesario */
+  }

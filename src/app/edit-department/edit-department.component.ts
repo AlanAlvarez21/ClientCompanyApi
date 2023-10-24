@@ -11,12 +11,12 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./edit-department.component.css']
 })
 export class EditDepartmentComponent {
-  user: any = {}; // Define la estructura de tu objeto de usuario
+  department: any = {}; // Define la estructura de tu objeto de usuario
   companyId: any;
   departmentId: any;
   leader: any = {};
   employees: any[] = [];
-  private apiEndpoint = 'http://localhost:8080/api/companies';
+  private apiEndpoint = 'http://localhost:8080/api/departments';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
 
@@ -27,16 +27,36 @@ export class EditDepartmentComponent {
       this.departmentId = params.get('departmentId');
       this.getEmployeesData(); // Cargar los datos de líderes y empleados al inicio
     });
+
+    console.log('company ID', this.companyId)
+    console.log('department ID', this.departmentId)
+    
+    this.http.get(`${this.apiEndpoint}/${this.departmentId}`).subscribe(
+      (data: any) => {
+        this.department = data;
+        console.log(data)
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error al obtener los datos de la compañía', error);
+      }
+    );
   }
 
 
   departments: any[] = [];
 
-  deleteEmployee(employeeId: string): void {
+  deleteEmployee(employeeId: string, is_current_leader: boolean): void {
     const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/employees/${employeeId}`;
     this.http.delete(apiUrl).subscribe(() => {
       this.employees = this.employees.filter(employee => employee._id !== employeeId);
     });
+
+    if (is_current_leader) {
+      // Espera medio segundo (500 milisegundos) antes de recargar la página
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    }
   }
 
   getEmployeesData(): void {
@@ -53,10 +73,11 @@ export class EditDepartmentComponent {
     this.router.navigate(['/departments', this.companyId]);
   }
 
-  openAddUserModal(type: string) {
+  openAddUserModal(type: boolean) {
     const dialogRef = this.dialog.open(AddUserModalComponent, {
       data: {
         companyId: this.companyId, // Pasa companyID
+        departmentId: this.departmentId, // Pasa companyID
         type: type, // Pasa el tipo de usuario
       },
     });
