@@ -1,0 +1,21 @@
+<section class="h-screen px-4 antialiased text-gray-600 bg-gray-100">
+    <div class="flex flex-col justify-center w-full h-full">
+        <button (click)="backToDepartment()">Ver Todos Los Departamentos</button>
+        <div class="w-full h-full mx-auto my-4 bg-white border border-gray-200 rounded-sm shadow-lg">
+          <form (submit)="addDepartment()">
+            <div class="flex flex-col justify-center w-full h-full">
+              <h2 class="md:mt-10">Agregar Departamento</h2>
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="newDepartment.name" required>    
+              <button class="mb-4" (click)="openAddUserModal('Employee')">Agregar Empleado</button>
+              <button (click)="openAddUserModal('Leader')">Agregar Líder De Departamento</button>
+
+            </div>
+            <button type="submit" class="mt-4">Agregar Departamento</button>
+          
+          </form>
+        </div>
+    </div>
+  </section>
+  
+  
