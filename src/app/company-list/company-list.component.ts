@@ -16,7 +16,7 @@ export class CompanyListComponent {
 
   ngOnInit(): void {
     // Define the API URL to fetch company data from
-    const apiUrl = 'http://localhost:8080/api/companies/';
+    const apiUrl = 'https://api-company-3bbf1b72d2c9.herokuapp.com/api/companies/';
 
     // Make an HTTP GET request to the API to get companies
     this.http.get(apiUrl).subscribe((data: any) => {
@@ -25,7 +25,7 @@ export class CompanyListComponent {
   }
 
   deleteCompany(companyId: string): void {
-    const apiUrl = `http://localhost:8080/api/companies/${companyId}`;
+    const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/companies/${companyId}`;
 
     this.http.delete(apiUrl).subscribe(() => {
       this.companies = this.companies.filter((company) => company._id !== companyId);
@@ -33,7 +33,7 @@ export class CompanyListComponent {
   }
 
   getDepartments(companyId: string): void {
-    const apiUrl = `http://localhost:8080/api/departments/company/${companyId}`;
+    const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/departments/company/${companyId}`;
 
     this.http.get(apiUrl).subscribe((data: any) => {
       this.departments = data;

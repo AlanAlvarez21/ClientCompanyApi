@@ -10,7 +10,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class UpdateUserComponent implements OnInit {
   user: any = {}; // Define la estructura de tu objeto de usuario
-  private apiEndpoint = 'https://nodejs-users-api-v86xc.kinsta.app';
+  private apiEndpoint = 'http://localhost:8080/api/companies';
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 

@@ -1,59 +1,50 @@
-<section class="antialiased bg-gray-100 text-gray-600 h-screen px-4">
-  <div class="flex flex-col justify-center h-full w-full">
-      <!-- Table -->
-      <div class="w-full h-full my-4 mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-          <header class="px-5 py-4 border-b border-gray-100 mt-10">
-              <h2 class="font-semibold text-xl text-center text-gray-800 mb-5">Lista de Usuarios</h2>
-              <button routerLink="/add-user" class="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded">Agregar Usuario</button>
-          </header>
-          
-          <div class="p-3">
-              <div class="overflow-x-auto">
-                  <table class="table-auto w-full">
-                      <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
-                          <tr>
-                              <th class="p-2 whitespace-nowrap">
-                                  <div class="font-semibold text-center"></div>
-                              </th>
-                              <th class="p-2 whitespace-nowrap">
-                                  <div class="font-semibold text-center">ID</div>
-                              </th>
-                              <th class="p-2 whitespace-nowrap">
-                                  <div class="font-semibold text-center">Nombre</div>
-                              </th>
-                              <th class="p-2 whitespace-nowrap">
-                                  <div class="font-semibold text-center">Edad</div>
-                              </th>
-                              <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Sexo</div>
-                            </th>
-                          </tr>
-                      </thead>
-                      <tbody class="text-sm divide-y divide-gray-100">
-                          <tr *ngFor="let user of users">
-                            <td class="p-2 whitespace-nowrap flex items-center space-x-2">
-                                <button (click)="deleteUser(user.id)" class="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
-                                  Eliminar
-                                </button>
-                                <button routerLink="/edit-user/{{ user.id }}" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded" >Editar Usuario</button>
+<section class="h-screen px-4 antialiased text-gray-600 bg-gray-100">
+    <div class="flex flex-col justify-center w-full h-full">
+        <!-- Table -->
+        <div class="w-full h-full mx-auto my-4 bg-white border border-gray-200 rounded-sm shadow-lg">
+            <header class="px-5 py-4 mt-10 border-b border-gray-100">
+                <h2 class="mb-5 text-xl font-semibold text-center text-gray-800">Lista de Compañías</h2>
+                <button routerLink="/add-company" class="px-4 py-2 font-bold text-white bg-green-400 rounded hover:bg-green-500">Agregar Compañía</button>
+            </header>
+            
+            <div class="p-3">
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto">
+                        <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center"></div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">ID</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Nombre</div>
+                                </th>
+                                <!-- Add more table headers for company-specific information if needed -->
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-100">
+                            <tr *ngFor="let company of companies">
+                              <td class="flex items-center p-2 space-x-2 whitespace-nowrap">
+                                  <button (click)="deleteCompany(company.id)" class="px-4 py-2 font-bold text-white bg-red-400 rounded hover:bg-red-600">
+                                    Eliminar
+                                  </button>
+                                  <!-- Add a button or link to edit a company if needed -->
                               </td>
                               <td class="p-2 whitespace-nowrap">
-                                <div class="text-center">{{ user.id }}</div>
-                            </td>
-                              <td class="p-2 whitespace-nowrap">
-                                  <div class="text-center">{{ user.name }}</div>
+                                <div class="text-center">{{ company.id }}</div>
                               </td>
                               <td class="p-2 whitespace-nowrap">
-                                  <div class="text-center font-medium ">{{ user.age }}</div>
+                                <div class="text-center">{{ company.name }}</div>
                               </td>
-                              <td class="p-2 whitespace-nowrap">
-                                  <div class="text-lg text-center font-medium">{{ user.gender }}</div>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
+                              <!-- Add more table cells for company-specific information if needed -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  

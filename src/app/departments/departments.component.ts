@@ -24,7 +24,7 @@ export class DepartmentsComponent implements OnInit {
 
   getDepartmentData(): void {
     if (this.companyId) {
-      const apiUrl = `http://localhost:8080/api/departments/company/${this.companyId}`;
+      const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/departments/company/${this.companyId}`;
 
       this.http.get(apiUrl).subscribe((data: any) => {
         this.departments = data;

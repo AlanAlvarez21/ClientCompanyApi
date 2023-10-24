@@ -29,7 +29,7 @@ export class EmployeesComponent implements OnInit {
 
   getEmployeesData(): void {
     if (this.departmentId) {
-      const apiUrl = `http://localhost:8080/api/departments/${this.departmentId}/employees-leaders`;
+      const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/departments/${this.departmentId}/employees-leaders`;
       this.http.get(apiUrl).subscribe((data: any) => {
         this.leader = data.leader;
         this.employees = data.employees;
@@ -42,7 +42,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   deleteEmployee(employeeId: string): void {
-    const apiUrl = `http://localhost:8080/api/employees/${employeeId}`;
+    const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/employees/${employeeId}`;
     this.http.delete(apiUrl).subscribe(() => {
       this.employees = this.employees.filter(employee => employee._id !== employeeId);
     });

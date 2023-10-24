@@ -14,7 +14,7 @@ export class AddUserComponent {
   constructor(private http: HttpClient) { }
 
   addUser() {
-    this.http.post('https://nodejs-users-api-v86xc.kinsta.app/usuarios', this.newUser).subscribe(
+    this.http.post('https://api-company-3bbf1b72d2c9.herokuapp.com/usuarios', this.newUser).subscribe(
       (data: any) => {
         console.log('User added successfully', data);
 
