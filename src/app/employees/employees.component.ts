@@ -47,4 +47,15 @@ export class EmployeesComponent implements OnInit {
       this.employees = this.employees.filter(employee => employee._id !== employeeId);
     });
   }
+
+  getUser(id: string): void {
+
+    console.log('hola mundo :D')
+    const apiUrl = `https://api-company-3bbf1b72d2c9.herokuapp.com/api/departments/company/${this.companyId}`;
+
+    this.http.get(apiUrl).subscribe((data: any) => {
+      // Navegar a la vista de departamentos con el companyId como parámetro
+      this.router.navigate(['/edit-employee', this.companyId,  this.departmentId ]);
+    });
+  }
 }
