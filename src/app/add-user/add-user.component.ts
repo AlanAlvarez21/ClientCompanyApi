@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AddUserModalComponent } from '../add-user-modal/add-user-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-user',
@@ -11,7 +13,7 @@ export class AddUserComponent {
   newCompany: any = {};
   errorAddingUser: string | null = null; // Variable para almacenar el mensaje de error
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private dialog: MatDialog) { }
 
   addUser() {
     this.http.post('https://api-company-3bbf1b72d2c9.herokuapp.com/api/companies', this.newCompany).subscribe(
@@ -21,6 +23,8 @@ export class AddUserComponent {
         window.alert('Compañía Creada');
 
         this.newCompany = {}; 
+        this.router.navigate(['/companies']);
+
       },
       (error: HttpErrorResponse) => {
         console.error('Error adding Company', error);

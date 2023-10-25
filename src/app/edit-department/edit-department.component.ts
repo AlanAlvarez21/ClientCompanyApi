@@ -92,7 +92,19 @@ export class EditDepartmentComponent {
 
 
   updateDepartment() {
-    console.log('hola')
-  //   // Verificar que los campos no estén vacíos
+    const apiUrl = `http://localhost:8080/api/departments/${this.departmentId}`;
+    
+    this.http.put(apiUrl, this.department).subscribe(
+      (data: any) => {
+        console.log('Department updated successfully', data);
+        this.router.navigate(['/departments', this.companyId]);
+        // Redirige a la página de detalles del departamento o realiza cualquier otra acción necesaria
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error updating Department', error);
+        // Maneja los errores aquí
+      }
+    );
   }
+  
 }

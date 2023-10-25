@@ -7,6 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'edit-department/:companyId/:departmentId', component: EditDepartmentComponent },
   { path: 'departments/:companyId', component: DepartmentsComponent },
   { path: 'employees/:departmentId/:companyId', component: EmployeesComponent },
+  { path: 'edit-employee/:companyId/:departmentId', component: EditEmployeeComponent },
 ];
 
 @NgModule({

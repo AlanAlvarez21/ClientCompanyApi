@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { EditDepartmentComponent } from './edit-department/edit-department.compo
     AddDepartmentComponent,
     AddUserModalComponent,
     EditDepartmentComponent,
+    EditEmployeeComponent,
   ],
   imports: [
     BrowserModule,
