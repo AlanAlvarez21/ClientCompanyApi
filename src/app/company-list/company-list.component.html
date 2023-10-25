@@ -10,7 +10,20 @@
             <div class="p-3">
                 <div class="overflow-x-auto">
                     <table class="w-full table-auto">
-                        <!-- ... (other table headers) ... -->
+                      <table class="w-full table-auto">
+                        <thead class="text-xs font-semibold text-gray-400 uppercase bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center"></div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">ID</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Nombre</div>
+                                </th>
+                            </tr>
+                        </thead>
                         <tbody class="text-sm divide-y divide-gray-100">
                             <tr *ngFor="let company of companies">
                               <td class="flex items-center p-2 space-x-2 whitespace-nowrap">
@@ -30,12 +43,11 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-            </div>
+                
+          
             
-        </div>
-    </div>
-  </section>
+      
+   
   
 
   
