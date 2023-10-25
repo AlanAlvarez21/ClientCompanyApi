@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'edit-department/:companyId/:departmentId', component: EditDepartmentComponent },
   { path: 'departments/:companyId', component: DepartmentsComponent },
   { path: 'employees/:departmentId/:companyId', component: EmployeesComponent },
-  { path: 'edit-employee/:companyId/:departmentId', component: EditEmployeeComponent },
+  { path: 'edit-employee/:companyId/:departmentId/:id', component: EditEmployeeComponent },
 ];
 
 @NgModule({
